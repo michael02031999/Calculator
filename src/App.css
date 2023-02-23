@@ -1,38 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron&family=Share+Tech+Mono&display=swap');
+
+@font-face {
+  font-family: 'digital-7';
+  src: url('/Users/michaelgalan/Downloads/digital_7/digital-7.ttf');
+}
+
+
+
+
+
+* {
+  margin: 0; 
+  padding: 0; 
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background: rgb(194,194,214); 
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 25px;
+  justify-content: center; 
+  align-items: center; 
+}
+
+#credits {
+  font-family: "share tech mono", monospace;
+}
+
+/* Calculator */
+
+.calculator {
+  width: 300px;
+  height: 400px;
+  background: rgb(194,194,214); 
+  background: black;
+  margin: 0 auto;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+}
+
+/* Display */
+
+.display {
+  width: 100%;
+  min-height: 60px;
+  height: fit-content;
+  background: rgb(194,194,214); 
+  background: black;
+
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0 10px;
+
+  box-sizing: border-box;
+  margin-top: 5px;
+}
+
+.display__output {
+  font-size: 2rem;
   color: white;
+  font-family: "Digital-7", monospace;
+  max-width: 100%;
+  height: fit-content;
+  text-align: right;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.display__input {
+  font-size: 1.5rem;
+  color: rgb(253,165,1);
+  font-family: "Digital-7", monospace;
+
+  overflow-wrap: break-word;
+  text-align: right;
+  display: inline-block;
+  width: 100%; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Numpad */
+
+#AC {
+  grid-area: AC;
+  background: rgb(172,57,57); 
+  width: 100%;
+  height: 100%;
+}
+
+#divide {
+  grid-area: divide;
+  background: rgb(102,102,102);
+  width: 100%;
+  height: 100%;
+}
+
+#multiply {
+  grid-area: multiple;
+  width: 100%;
+  height: 100%; 
+  background: rgb(102,102,102);
+}
+
+#subtract {
+  grid-area: subtract;
+  width: 100%;
+  background: rgb(102,102,102);
+  height: 100%;
+}
+
+#addition {
+  grid-area: addition;
+  width: 100%;
+  background: rgb(102,102,102);
+  height: 100%;
+}
+
+#equals {
+  grid-area: equals;
+  width: 100%;
+  height: 100%;
+  background: rgb(6,68,102)
+}
+
+#nine {
+  grid-area: nine;
+  width: 100%;
+  height: 100%;
+  background: rgb(77,77,77)
+}
+
+#eight {
+  grid-area: eight;
+  width: 100%;
+  height: 100%;
+  background: rgb(77,77,77)
+}
+
+#seven {
+  grid-area: seven;
+  width: 100%;
+  height: 100%;
+  background: rgb(77,77,77)
+}
+
+#six {
+  grid-area: six;
+  width: 100%;
+  height: 100%;
+  background: rgb(77,77,77)
+}
+
+#five {
+  grid-area: five;
+  width: 100%;
+  height: 100%;
+  background: rgb(77,77,77)
+}
+
+#four {
+  grid-area: four;
+  width: 100%;
+  height: 100%;
+  background: rgb(77,77,77)
+} 
+
+#three {
+  grid-area: three;
+  width: 100%;
+  height: 100%;
+  background: rgb(77,77,77)
+}
+
+#two {
+  grid-area: two;
+  width: 100%;
+  height: 100%;
+  background: rgb(77,77,77)
+}
+
+#one {
+  grid-area: one;
+  width: 100%;
+  height: 100%;
+  background: rgb(77,77,77)
+}
+
+#zero {
+  grid-area: zero;
+  width: 100%;
+  height: 100%;
+  background: rgb(77,77,77)
+}
+
+#decimal {
+  grid-area: .;
+  width: 100%;
+  height: 100%;
+  background: rgb(77,77,77)
+}
+
+.numpad {
+  width: 100%;
+  height: 340px;
+  background: rgb(194,194,214); 
+  background: black;
+  box-sizing: border-box;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-areas: 
+    "AC AC divide multiple"
+    "seven eight nine subtract"
+    "four five six addition"
+    "one two three equals"
+    "zero zero . equals";
+}
+
+.numpad__button {
+  width: 25%;
+  height: 50px;
+  background: rgb(194,194,214); 
+  background: black;
+  border: 1px solid rgba(0,0,0,0.2);
+  float: left;
+  box-sizing: border-box;
+  font-size: 1.5rem;
+  color: white;
+  font-family: "Share Tech Mono", monospace;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.numpad__button:hover {
+  color: black;
+  border: 1px solid lightgray;
 }
