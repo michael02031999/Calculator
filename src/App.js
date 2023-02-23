@@ -6,6 +6,8 @@ function Numpad(props){
 
     console.log(props);
 
+    console.log("hello darkness my old friend");
+
     return (
       <div className="numpad">
   
