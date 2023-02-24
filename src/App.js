@@ -160,7 +160,9 @@ function Calculator() {
           else if (numbers.includes(symbol)) {
   
             setOutput((prevOutput) => {
-            
+
+              console.log(prevOutput.length);
+
               if (prevOutput === "0" && literalNumbers.includes(symbol)) {
                 console.log("So this is working right");
                 prevOutput = "";
@@ -199,7 +201,16 @@ function Calculator() {
           }
         }
         else if (symbol === "=") {
-          setOutput(solution);
+          solution = solution.toString();
+
+          if (solution.length >= 14) {
+            solution = solution.slice(0, 14);
+            setOutput(solution);
+          }
+          else {
+            setOutput(solution);
+          }
+
           operationComplete = true; 
         }
       }
@@ -207,14 +218,14 @@ function Calculator() {
       else if (operationComplete == true) {
         
         if (numbers.includes(symbol)) {
-          console.log("READ READ READ ALL ABOUT IT");
+     
           if (symbol === ".") {
             setOperation("0.");
             setOutput("0.");
             operationComplete = false; 
           }
           else {
-            console.log("This fires");
+
             //setOperation(symbol)
             topString(symbol, true);
             setOutput(symbol);
